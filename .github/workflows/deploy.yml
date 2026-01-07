@@ -2,7 +2,9 @@ name: iRail Pipeline CI/CD
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
+  schedule:
+    - cron: "*/15 * * * *"   # every 15 minutes
 
 jobs:
   build-test-deploy:
@@ -10,36 +12,27 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
-        python-version: '3.14'
+        python-version: "3.11"
 
     - name: Install dependencies
       run: |
-        python -m venv .venv
-        source .venv/bin/activate
+        python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run tests
+    - name: Run pipeline (smoke test)
       run: |
-        source .venv/bin/activate
-        pytest
+        python -m irail_pipeline_csv
 
-    - name: Build Docker image
-      run: |
-        docker build -t irail-pipeline .
-
-    - name: Login to Azure
+    - name: Azure Login
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Deploy to Azure Function
+    - name: Deploy to Azure Functions
       run: |
-        az functionapp deployment source config-zip \
-          --name irail-pipeline-app \
-          --resource-group irail-rg \
-          --src $(pwd)/functionapp.zip
+        func azure functionapp publish irail-pipeline-app --python
