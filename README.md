@@ -25,12 +25,15 @@ This project creates a real-world data pipeline that fetches train departure dat
 
 This project is structured in three progressive levels:
 
-- 🟢 Setting up the core functionality — fetch and store data via Azure Portal using Azure Functions and Azure SQL Database
+- 🟢 Setting up the core functionality — fetch and store data via Azure Portal using Azure Functions and Azure SQL Database.
 - 🟡 Adding automation (scheduling), build a live dashboard (e.g., Power BI), and enable data refresh.
 - 🔴 Exploring full DevOps integration — CI/CD pipelines, scripting with Azure CLI, Docker deployment, and cloud-native infrastructure as code.
 
 Due to license restictions in Azure (multiple accounts which cannot be deleted), another approach was chosen based on CSV file creation 
 using VSCode and Python. Uploading to GitHub allowed deployment to Azure. 
+
+
+
 
 
 ---
