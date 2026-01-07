@@ -1,0 +1,23 @@
+# Use official Python image
+FROM python:3.14-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy code
+COPY . /app
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Create data directory inside container
+RUN mkdir -p /app/data
+
+# Set environment variable for CSV storage
+ENV DATA_DIR=/app/data
+
+# Expose Azure Functions default port
+EXPOSE 7071
+
+# Start Azure Functions runtime
+CMD ["func", "start", "--python"]

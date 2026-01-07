@@ -1,0 +1,27 @@
+origin,destination,train_type,route,time,delay
+Gent,Mechelen,,,1767702060,0
+Gent,Knokke,,,1767702120,0
+Gent,Oudenaarde,,,1767702180,0
+Gent,Eupen,,,1767702300,0
+Gent,Antwerp-Central,,,1767702420,0
+Gent,Poperinge,,,1767702960,0
+Gent,Ostend,,,1767703140,0
+Gent,Brussels Airport - Zaventem,,,1767703140,0
+Gent,Liège-Guillemins,,,1767703260,0
+Gent,Lokeren,,,1767703320,0
+Gent,Zeebrugge-Dorp,,,1767703500,0
+Gent,Antwerp-Central,,,1767703980,0
+Gent,De Panne,,,1767703980,60
+Gent,Welkenraedt,,,1767704100,0
+Gent,Ronse/Renaix,,,1767704220,0
+Gent,Leuven,,,1767704220,0
+Gent,Genk,,,1767704400,0
+Gent,Blankenberge,,,1767704400,0
+Gent,Geraardsbergen,,,1767704700,0
+Gent,Antwerp-Central,,,1767704940,0
+Gent,Kortrijk,,,1767704940,0
+Gent,Ostend,,,1767705060,60
+Gent,Eeklo,,,1767705120,0
+Gent,Genk,,,1767705180,0
+Gent,Mechelen,,,1767705660,0
+Gent,Knokke,,,1767705720,0

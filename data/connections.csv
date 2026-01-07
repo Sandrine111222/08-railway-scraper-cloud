@@ -1,0 +1,13 @@
+from_station,to_station,total_duration_minutes,transfer_count,recorded_at
+Gent-Sint-Pieters,Brussels-Central,35,0,2026-01-06T10:19:42.813748
+Gent-Sint-Pieters,Brussels-Central,36,0,2026-01-06T10:19:42.813772
+Gent-Sint-Pieters,Brussels-Central,37,0,2026-01-06T10:19:42.813778
+Gent-Sint-Pieters,Brussels-Central,36,0,2026-01-06T10:19:42.813782
+Gent-Sint-Pieters,Brussels-Central,35,0,2026-01-06T10:19:42.813785
+Gent-Sint-Pieters,Brussels-Central,36,0,2026-01-06T10:19:42.813788
+Gent-Sint-Pieters,Brussels-Central,35,0,2026-01-06T12:04:34.481786
+Gent-Sint-Pieters,Brussels-Central,36,0,2026-01-06T12:04:34.481801
+Gent-Sint-Pieters,Brussels-Central,38,0,2026-01-06T12:04:34.481805
+Gent-Sint-Pieters,Brussels-Central,37,1,2026-01-06T12:04:34.481808
+Gent-Sint-Pieters,Brussels-Central,40,0,2026-01-06T12:04:34.481810
+Gent-Sint-Pieters,Brussels-Central,35,0,2026-01-06T12:04:34.481813
