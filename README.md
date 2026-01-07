@@ -15,7 +15,7 @@ This project creates a real-world data pipeline that fetches train departure dat
 - [Dataset](#dataset)  
 - [Building the SQL pipeline](#building-the-sql-pipeline)   
 - [Creating visuals in PowerBI](#creating-visuals-in-powerbi)
-- [Deployment to Azure] (#deployment-to-azure)
+- [Deployment to Azure](#deployment-to-azure)
 - [Project Structure](#project-structure)   
 
 
