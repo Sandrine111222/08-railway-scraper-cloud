@@ -95,22 +95,10 @@ The raw dataset is structured as CVS files stocked in a CVS storage.
 ### Advanced Features
 
 1. **CI/CD Pipeline**  
-   - Automate building, testing, and deploying your Function App and infrastructure.  
+   - Automate building, testing, and deploying of the Function App and infrastructure.  
    - Use GitHub Actions or Azure DevOps Pipelines for repeatable, reliable delivery.
 
-2. **Infrastructure as Code with Terraform**  
-   - Define and provision Azure resources declaratively using Terraform configs.  
-   - Enables version-controlled, repeatable infrastructure deployments integrated into your pipeline.
-
-3. **Azure CLI and Scripting Automation**  
-   - Write Python or shell scripts to automate Azure resource management and configuration tasks.  
-   - Useful for custom setup steps not covered by Terraform or CI/CD tools.
-
-4. **Authentication and Security Best Practices**  
-   - Implement Managed Identities to avoid hardcoded secrets.  
-   - Secure Function endpoints with OAuth, API keys, or Azure AD integration.
-
-5. **Containerization with Docker**  
+2. **Containerization with Docker**  
    - Package your Azure Function or pipeline code in Docker containers.  
    - Deploy containers to Azure Container Registry and run via Azure Functions Premium Plan or Azure Container Apps.
 
