@@ -1,42 +1,134 @@
-# 🚆 Azure Train Data Project with iRail API
+# Description 📊
 
-- Repository: `challenge-azure`
-- Type of Challenge: `Learning`
-- Duration: `5 days`
-- Deadline: `dd/mm/yy H:i AM/PM`
-- Team challenge : `solo`
 
-## Azure Setup
-You'll be provided a @becode.education Microsoft account.
 
-Use it to create an Azure account here:
-https://portal.azure.com/#home
 
-Once it's done start **Azure for Students**. Thanks to this you won't need to register a credit card and you'll get:
+This project creates a real-world data pipeline that fetches train departure data from the [iRail API](https://docs.irail.be/), normalizes it, and stores it in a SQL database — all deployed using Microsoft Azure.
 
-- $100 credit to spend in Azure
-- Free services
 
-More information here: https://azure.microsoft.com/en-us/free/students/
+---
 
-When the setup is done you can start creating resources!
+# Table of Contents
 
-![alt text](assets/azure-for-student.png)
+- [Project Overview](#project-overview)  
+- [Features](#features)  
+- [Dataset](#dataset)  
+- [Building the SQL pipeline](#building-the-sql-pipeline)   
+- [Creating visuals in PowerBI](#creating-visuals-in-powerbi)
+- [Deployment to Azure] (#deployment-to-azure)
+- [Project Structure](#project-structure)   
 
-## 🎯 Project Overview
 
-Create a real-world data pipeline that fetches train departure data from the [iRail API](https://docs.irail.be/), normalizes it, and stores it in a SQL database — all deployed using Microsoft Azure.
+---
+
+# Project Overview
 
 This project is structured in three progressive levels:
 
-- 🟢 **Must-Have**: Set up core functionality — fetch and store data via Azure Portal using Azure Functions and Azure SQL Database.
+- 🟢 Setting up the core functionality — fetch and store data via Azure Portal using Azure Functions and Azure SQL Database
+- 🟡 Adding automation (scheduling), build a live dashboard (e.g., Power BI), and enable data refresh.
+- 🔴 Exploring full DevOps integration — CI/CD pipelines, scripting with Azure CLI, Docker deployment, and cloud-native infrastructure as code.
 
-![mvp_pipeline](./assets/mvp_pipeline.png)
+Due to license restictions in Azure (multiple accounts which cannot be deleted), another approach was chosen based on CSV file creation 
+using VSCode and Python. Uploading to GitHub allowed deployment to Azure. 
 
-- 🟡 **Nice-to-Have**: Add automation (scheduling), build a live dashboard (e.g., Power BI), and enable data refresh.
-- 🔴 **Hardcode Level**: Explore full DevOps integration — CI/CD pipelines, scripting with Azure CLI, Docker deployment, and cloud-native infrastructure as code.
 
-👉 **Important:** You must complete the *Must-Have* stage first. However, it's crucial that you **think ahead to what kind of dashboard or insights you might want to build** (in Nice-to-Have and Hardcore Level). This will help you design the right data schema and fetch meaningful data now — avoiding the need to start over later.
+---
+
+# Features
+
+Taking the project to production-grade deployment using DevOps practices and cloud scripting.
+
+
+---
+
+# Dataset
+
+The raw dataset is structured as CVS files stocked in a CVS storage.
+
+
+
+  
+  
+---
+
+# Building the SQL pipeline
+
+
+## Key steps
+
+1. **Cleaning of the data**  
+   - Put everything in English only.
+   - Correct spelling mistakes.
+   - Group into smaller amount of subcategories per table.
+   - Handle "zero" and "NULL". 
+
+2. **Answer 10 questions**  
+   - Key business questions:
+      1. What is the price distribution of menu items?
+      2. What is the distribution of restaurants per location?
+      3. Which are the top 10 pizza restaurants by rating?
+      4. Map locations offering kapsalons (or your favorite dish) and their average price.
+
+   - Open ended questions:
+
+      1. Which restaurants have the best price-to-rating ratio?
+      2. Where are the delivery ‘dead zones’—areas with minimal restaurant coverage?
+      3. How does the availability of vegetarian and vegan dishes vary by area?
+      4. Identify the **World Hummus Order (WHO)**; top 3 hummus serving restaurants.
+      5. What are the top 10 restaurants for deserts?
+      6. What are the 10 worst restaurants?
+    
+   - SQL queries have been optimized for speed and readability.
+
+3. **Store in CSV files**  
+   - CSV files circumvent SQLite extension issues and PowerBI restrictions.
+
+---
+
+# Creating visuals in PowerBI
+
+
+- Maps, tables, bar charts are made accordingly to the desired question.
+  
+
+
+---
+
+
+# Project Structure
+
+```bash
+delivery-market-analysis/
+│
+├──cleaned_db.sql
+├──ER_schema_takeaway.png
+├──pipeline_sql.py
+├──README.md
+├──Top 10 pizzas.pbix
+├──csv_exports
+│    └──best_value_restaurants.csv
+│    └──delivery_dead_zones.csv
+│    └──kapsalon_map.csv
+│    └──price_distribution.csv
+│    └──restaurants_per_city.csv
+│    └──top_10_pizza_restaurants.csv
+│    └──veg_vegan_distribution.csv
+│    └──world_hummus_order.csv
+└── venv/  
+     
+
+---
+
+
+This project is part of AI & Data Science Bootcamp training at **`</becode>`** and it written by :
+
+- Sandrine Herbelet  [LinkedIn](https://www.linkedin.com/in/) | [Github](https://github.com/Sandrine111222)# 🚆 Azure Train Data Project with iRail API
+
+
+
+
+
 
 ## 🧠 Project Vision
 
@@ -55,7 +147,7 @@ These are some potential directions your dashboard could take. Pick one early to
 - **Peak Hour Analysis**: Show how train traffic and delays vary by time of day or week
 - **Real-Time Train Map** (advanced): Plot moving trains with geolocation
 
-🧭 **Plan ahead**: Even though you’re currently focusing on fetching and storing data, choose a use case now so you start downloading the **right endpoints and fields** (e.g., platform, delay, train type, connection route). This makes later stages easier and more meaningful.
+
 
 ## 🟢 Must-Have: Azure Function Pipeline via Azure Portal
 
@@ -123,8 +215,8 @@ Extend the project by automating data ingestion and building live dashboards.
 
 ## 🔴 Hardcore Level: CI/CD, Azure CLI, and DevOps Automation
 
-### Objective  
-Take your project to production-grade deployment using DevOps practices and cloud scripting.
+
+
 
 ### Advanced Features
 
