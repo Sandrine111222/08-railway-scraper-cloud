@@ -101,6 +101,9 @@ The raw dataset is structured as CVS files stocked in a CVS storage.
 2. **Containerization with Docker**  
    - Package the Azure Function or pipeline code in Docker containers.  
    - Deploy containers to Azure Container Registry and run via Azure Functions Premium Plan or Azure Container Apps.
+  
+
+![Screenshot](Screenshot.png)
 
 ---
 
