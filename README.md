@@ -103,7 +103,7 @@ The raw dataset is structured as CVS files stocked in a CVS storage.
    - Deploy containers to Azure Container Registry and run via Azure Functions Premium Plan or Azure Container Apps.
   
 
-  ![Screenshot](Schermafbeelding-2026-01-08-161842.png)
+  ![Schermafbeelding-2026-01-08](Schermafbeelding-2026-01-08.png)
 
 
 ---
