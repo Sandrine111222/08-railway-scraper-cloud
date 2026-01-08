@@ -39,12 +39,12 @@ using VSCode and Python. Uploading to GitHub allowed deployment to Azure.
 The dashboard contains:
 
 
-- **Live Departure Board**: Show current or recent train departures for a selected station
-- **Delay Monitor**: Track which stations or trains experience the most delays over time
-- **Route Explorer**: Let users check travel time and transfer info between two cities
-- **Train Type Distribution**: Visualize where and how different train types (IC, S, etc.) operate
-- **Peak Hour Analysis**: Show how train traffic and delays vary by time of day or week
-- **Real-Time Train Map** (advanced): Plot moving trains with geolocation
+- **Live Departure Board**: Shows current or recent train departures for a selected station.
+- **Delay Monitor**: Tracks which stations or trains experience the most delays over time.
+- **Route Explorer**: Lets users check travel time and transfer info between two cities.
+- **Train Type Distribution**: Visualizes where and how different train types (IC, S, etc.) operate.
+- **Peak Hour Analysis**: Shows how train traffic and delays vary by time of day or week.
+- **Real-Time Train Map** (advanced): Plots moving trains with geolocation.
 
 
 ---
