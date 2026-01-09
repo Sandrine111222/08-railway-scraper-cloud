@@ -46,6 +46,18 @@ The dashboard contains:
 - **Peak Hour Analysis**: Shows how train traffic and delays vary by time of day or week.
 - **Real-Time Train Map** (advanced): Plots moving trains with geolocation.
 
+This code is already Azure-ready:
+
+
+| Component          | Status                |
+| ------------------ | --------------------  |
+| Azure Function     | ✅ (timer trigger)    |
+| Azure Blob Storage | ✅ (replace CSV path) |
+| Azure SQL          | 🔜 (same schema)      |
+| Power BI           | ✅ (CSV / SQL source) |
+| CI/CD              | ✅ (GitHub Actions)   |
+
+
 
 ---
 
