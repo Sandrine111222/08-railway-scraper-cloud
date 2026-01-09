@@ -129,6 +129,8 @@ The raw dataset is structured as CVS files stocked in a CVS storage and an SQLit
    - Run using Azure Functions Premium Plan, Azure Container Apps, or other cloud-native services.
 
 
+<img src="Infographic2.png" alt="Infographic2" width="350">
+
 
 ![Screenshot](Screenshot.png)
 
