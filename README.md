@@ -3,7 +3,7 @@
 
 
 
-This project creates a real-world data pipeline that fetches train departure data from the [iRail API](https://docs.irail.be/), normalizes it, and stores it in a SQL database — all deployed using Microsoft Azure.
+This project creates a real-world data pipeline that fetches train departure data from the [iRail API](https://docs.irail.be/), normalizes it, and stores it in a CSV and SQLite database — ready for deployment in Microsoft Azure.
 
 
 ---
@@ -13,7 +13,7 @@ This project creates a real-world data pipeline that fetches train departure dat
 - [Project Overview](#project-overview)  
 - [Features](#features)  
 - [Dataset](#dataset)  
-- [Building the SQL pipeline](#building-the-sql-pipeline)   
+- [Building the Belgium-Wide iRail CSV and SQLite Pipeline](#building-the-belgium-wide-irail-csv-and-sqlite-pipeline)   
 - [Creating visuals in PowerBI](#creating-visuals-in-powerbi)
 - [Deployment to Azure](#deployment-to-azure) 
 - [Project Structure](#project-structure)   
@@ -29,8 +29,8 @@ This project is structured in three progressive levels:
 - 🟡 Adding automation (scheduling), build a live dashboard (e.g., Power BI), and enable data refresh.
 - 🔴 Exploring full DevOps integration — CI/CD pipelines, scripting with Azure CLI, Docker deployment, and cloud-native infrastructure as code.
 
-Due to license restictions in Azure (multiple accounts which cannot be deleted), another approach was chosen based on CSV file creation 
-using VSCode and Python. Uploading to GitHub allowed deployment to Azure. 
+Due to license restictions in Azure (multiple accounts which cannot be deleted), another approach was chosen based on CSV file and SQLite Database creation 
+using VSCode and Python. The code runs fully locally, simulating the Azure environment, while keeping it structured as if it were deployable. 
 
 
 ![Infographic](Infographic.png)
@@ -48,60 +48,70 @@ The dashboard contains:
 
 The pipeline uses timezone-aware UTC timestamps to ensure cloud compatibility and future-proof datetime handling.
 
+This code is Azure-ready if the following adaptions would be made to the code:
+
+
+| Component          | Status                |
+| ------------------ | --------------------  |
+| Azure Function     | ✅ (timer trigger)    |
+| Azure Blob Storage | ✅ (replace CSV path) |
+| Azure SQL          | 🔜 (same schema)      |
+| Power BI           | ✅ (CSV / SQL source) |
+| CI/CD              | ✅ (GitHub Actions)   |
+
+
 
 ---
 
 # Features
 
-Taking the project to production-grade deployment using DevOps practices and cloud scripting.
-
-Fetch live departures from all major Belgian train stations.
-
-Track train routes and connections between selected stations.
-
-Log train positions with latitude and longitude.
-
-Store all data in CSV files, ready for analysis or cloud storage.
-
-Fully time-triggered via Azure Functions.
-
-Ready for CI/CD automation and containerized deployments.
+- Taking the project to production-grade deployment using DevOps practices and cloud scripting.
+- Fetch live departures from all major Belgian train stations.
+- Track train routes and connections between selected stations.
+- Log train positions with latitude and longitude.
+- Store all data in CSV files and SQLite database, ready for analysis or cloud storage.
+- Fully time-triggered via Azure Functions.
+- Ready for CI/CD automation and containerized deployments.
 
 
 ---
 
 # Dataset
 
-The raw dataset is structured as CVS files stocked in a CVS storage.
-
-
-
+The raw dataset is structured as CVS files stocked in a CVS storage and an SQLite database.
   
   
 ---
 
-# Building the SQL pipeline
+# Building the Belgium-Wide iRail CSV and SQLite Pipeline
 
 
 ## Key steps
 
 
-1. **Create CSV Database**:
-   - Use the “Create a resource” wizard
-   - Set up firewall to allow external IP
-   - Note the connection string for later use
+1. **Create CSV and SQLite Database** (simulates Azure Blob Storage):
+   - All station, train, and departure data will be stored in structured CSV files and SQLite database.
+   - Store them locally or in a cloud storage location (e.g., Azure Blob Storage).
+   - Ensure directories exist and proper permissions are set.
 
 2. **Create an Azure Function App**:
-   - Use “Python 3.12” as the runtime
-   - Deploy an time-triggered function using the web editor
-   - Use environment variables for credentials (in App Settings)
+   - Use Python 3.10 as the runtime.
+   - Deploy a time-triggered function (e.g., every 15 minutes) to automate the pipeline.
+   - Store sensitive information (if any) as environment variables in the Function App settings.
 
 3. **Implement the logic** to:
-   - Call the iRail API (`/liveboard` or /`connections`)
-   - Normalize the JSON using Python libraries (e.g., pandas)
-   - Connect and write to Azure SQL
+   - Fetch real-time Belgian train data from the iRail API (/liveboard endpoint for live departures, /connections for routes).
+   - Normalize JSON responses using Python standard libraries (csv, datetime, etc.).
+   - Save structured data into CSV files:
+              stations.csv – all Belgian stations
+              trains.csv – all trains with types
+              departures.csv – live departures including destination, platform, delays
+              ...
 
-4. **Test the Function** verify that the data appears in your SQL table.
+4. **Test the Function**:
+    - Trigger the Azure Function manually or via timer.
+    - Verify that CSV files and SQLite dataabse are populated correctly.
+    - Ensure all stations and trains are included, and timestamps are in UTC.
 
   
 
@@ -109,12 +119,14 @@ The raw dataset is structured as CVS files stocked in a CVS storage.
 ### Advanced Features
 
 1. **CI/CD Pipeline**  
-   - Automate building, testing, and deploying of the Function App and infrastructure.  
+   - Automate building, testing, and deployment of the Azure Function and pipeline code.
    - Use GitHub Actions or Azure DevOps Pipelines for repeatable, reliable delivery.
+   - Include tests for the iRail API calls and CSV and SQLite database integrity.
 
 2. **Containerization with Docker**  
-   - Package the Azure Function or pipeline code in Docker containers.  
-   - Deploy containers to Azure Container Registry and run via Azure Functions Premium Plan or Azure Container Apps.
+   - Package the pipeline code or the Azure Function in a Docker container.
+   - Deploy containers to Azure Container Registry.
+   - Run using Azure Functions Premium Plan, Azure Container Apps, or other cloud-native services.
   
 
 ![Screenshot](Screenshot.png)
@@ -133,7 +145,12 @@ The raw dataset is structured as CVS files stocked in a CVS storage.
 # Deployment to Azure
 
 
-- 
+- Create an **Azure Function App** in the portal using **Python 3.10** as the runtime.
+- Deploy this pipeline code to the Function App.
+- Configure a **time-triggered function** (e.g., every 15 minutes) to automate fetching and storing train data.
+- Use **Application Settings** to securely store any sensitive information such as database credentials or API tokens.
+- Once deployed, the function will automatically generate CSV files and update the database with real-time Belgian train data.
+
   
 
 ---
