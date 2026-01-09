@@ -127,7 +127,8 @@ The raw dataset is structured as CVS files stocked in a CVS storage and an SQLit
    - Package the pipeline code or the Azure Function in a Docker container.
    - Deploy containers to Azure Container Registry.
    - Run using Azure Functions Premium Plan, Azure Container Apps, or other cloud-native services.
-  
+
+
 
 ![Screenshot](Screenshot.png)
 
@@ -138,7 +139,9 @@ The raw dataset is structured as CVS files stocked in a CVS storage and an SQLit
 
 - Maps, tables, bar charts are made accordingly to the desired question.
   
+![Screenshot3](Screenshot3.png)
 
+Here, the delay monitor displays the sum of delay in seconds per station in Belgium per year.
 
 ---
 
