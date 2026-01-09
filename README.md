@@ -110,7 +110,7 @@ The raw dataset is structured as CVS files stocked in a CVS storage and an SQLit
 
 4. **Test the Function**:
     - Trigger the Azure Function manually or via timer.
-    - Verify that CSV files and SQLite dataabse are populated correctly.
+    - Verify that CSV files and SQLite database are populated correctly.
     - Ensure all stations and trains are included, and timestamps are in UTC.
 
   
