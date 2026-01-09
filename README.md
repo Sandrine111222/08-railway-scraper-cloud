@@ -55,6 +55,18 @@ The pipeline uses timezone-aware UTC timestamps to ensure cloud compatibility an
 
 Taking the project to production-grade deployment using DevOps practices and cloud scripting.
 
+Fetch live departures from all major Belgian train stations.
+
+Track train routes and connections between selected stations.
+
+Log train positions with latitude and longitude.
+
+Store all data in CSV files, ready for analysis or cloud storage.
+
+Fully time-triggered via Azure Functions.
+
+Ready for CI/CD automation and containerized deployments.
+
 
 ---
 
