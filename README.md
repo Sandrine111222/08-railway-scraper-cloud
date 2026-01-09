@@ -46,6 +46,8 @@ The dashboard contains:
 - **Peak Hour Analysis**: Shows how train traffic and delays vary by time of day or week.
 - **Real-Time Train Map** (advanced): Plots moving trains with geolocation.
 
+The pipeline uses timezone-aware UTC timestamps to ensure cloud compatibility and future-proof datetime handling.
+
 
 ---
 
@@ -72,14 +74,14 @@ The raw dataset is structured as CVS files stocked in a CVS storage.
 ## Key steps
 
 
-1. **Create Azure SQL Database** via the portal:
+1. **Create CSV Database**:
    - Use the “Create a resource” wizard
    - Set up firewall to allow external IP
    - Note the connection string for later use
 
 2. **Create an Azure Function App**:
-   - Use “Python 3.10” as the runtime
-   - Deploy an HTTP-triggered function using the web editor
+   - Use “Python 3.12” as the runtime
+   - Deploy an time-triggered function using the web editor
    - Use environment variables for credentials (in App Settings)
 
 3. **Implement the logic** to:
@@ -87,7 +89,7 @@ The raw dataset is structured as CVS files stocked in a CVS storage.
    - Normalize the JSON using Python libraries (e.g., pandas)
    - Connect and write to Azure SQL
 
-4. **Test the Function** directly from the portal and verify that the data appears in your SQL table.
+4. **Test the Function** verify that the data appears in your SQL table.
 
   
 
